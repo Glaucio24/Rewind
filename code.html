@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <title>App Name: A coding Project by Glaucio Alexandre</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png">
+    <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
+    <link href="/css/prism.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png">
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Julee&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="d-flex flex-column h-100">
+    <!--===== Nav Section =====-->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand logoFont" href=""> <img class="d-inline-block" src="img/letter-g.png" width="30"
+                    height="25" alt=""> THE GREENS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="app.html">The App</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="code.html">The Code</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="https://github.com/Glaucio24/Big-G">Git Repo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Main Tag-->
+    <main class="flex shrink-0">
+        <div class="container py-5 px-5 mt-5">
+            <h2 class="border-1 border-bottom border-dark">The code</h2>
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col-lg-8">
+                    <pre class="line-numbers">
+                        <code class="language-javascript">                   
+//Get the value from the interface
+//Starts or Controller function
+function getValue() {
+    //get values from the page
+    let startValue = document.getElementById("startValue").value;
+    let endValue = document.getElementById("endValue").value;
+
+    //Parse into integers 
+    startValue = parseInt(startValue);
+    endValue = parseInt(endValue);
+    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+        //call generateNumbers function
+        let numbers = generateNumbers(startValue, endValue);
+        //we call display numbers to PUT  DISPLAY values on screen,
+        // NOT every function should return anything. 
+        displayNumbers(numbers)
+    }
+    else {
+        alert("You must enter integers");
+    }
+}
+
+//Generate numbers from startvalue to the endValue
+//Logic function(s)
+function generateNumbers(sValue, eValue) {
+    let numbers = [];
+
+    //Get all numbers from start to end
+    for (let index = sValue; index <= eValue; index++) {
+        //This will execute in a loop until index=eValue
+        numbers.push(index);
+
+    }
+    return numbers;
+}
+
+//display the numbers and mark even numbers BOLD
+//display or view function
+function displayNumbers(numbers) {
+    let templateRows = "";
+
+    for (let index = 0; index < numbers.length; index++) {
+
+        let number = numbers[index];
+        let className = "even";
+
+        if (number % 2 == 0) {
+            className = "even";
+        }
+        else {
+            className = "odd";
+        }
+        templateRows += `<tr><td class="${className}">${number}</td></tr>`;
+    }
+    document.getElementById("results").innerHTML = templateRows;
+
+}
+                    </code>
+                </pre>
+                </div>
+                <div class="col-lg-4">
+                    <p>The code is instructed in three main functions:</p>
+                    <h5>getValue()</h5>
+                    <p>This function renders the start and end value from the interface.
+                        Furthermore, it parses them into integers, and it displays the values on screen.</p>
+                    <h5>generateNumbers()</h5>
+                    <p>This function helps us generate numbers from start value to the end value.
+                        The values are pushed and stored in a dynamic array</p>
+                    <h5>displayNumbers()</h5>
+                    <p>The purpose of this function is primarly to display numbers on screen, and ensure it marks bolds
+                        on even numbers </p>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+    <!--Footer-->
+    <footer class="footer mt-auto py-3">
+        <div class="container-fluid">
+            <div class="row row-cols-1 row-cols-lg-3 gy-2 ">
+                <div class="col  order-last order-lg-first text-light ">
+                    <span class="text-muted">&copy;2023</span> Glaucio Alexandre | khedinhoglaucio@gmail.com
+                </div>
+                <div class="col d-flex alin-item-center justify-content-lg-center">
+                    <img src="img/letter-g.png" alt="The G logo" height="24">
+                </div>
+                <div class="col d-flex alin-item-center justify-content-start justify-content-lg-end">
+                    <row class="row">
+                        <div class="col social"><a href="https://www.linkedin.com/in/glaucio-alexandre-502992208/" target="_blank"><i class="fa fa-linkedin fa-2x licon" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col social"><a href="https://github.com/Glaucio24 " target="_blank"><i class="fa fa-github fa-2x gicon" target="_blank" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col social"><a href="https://twitter.com/Glaucio_Alex/with_replies?lang=ca" target="_blank"><i class="fa fa-twitter fa-2x ticon" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col social"><a href="https://www.youtube.com/channel/UCSBjqjBYW4rtRk37UTgNzhA" target="_blank"><i class="fa fa-youtube fa-2x yicon" aria-hidden="true"></i></a>
+                        </div>
+                    </row>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+        </script>
+    <script src="/js/site.js"></script>
+    <script src="/js/prism.js"></script>
+    <Script>
+        Prism.plugins.NormalizeWhitespace.setDefaults({
+            'remove-trailing': true,
+            'remove-indent': true,
+            'left-trim': true,
+            'right-trim': true
+        })
+    </Script>
+</body>
+
+</html>
