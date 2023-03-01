@@ -15,6 +15,11 @@
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
     <link href="/css/prism.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/favicon-32x32.png">
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Julee&display=swap" rel="stylesheet">
+
 
 </head>
 
@@ -22,8 +27,8 @@
     <!--===== Nav Section =====-->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href=""> <img class="d-inline-block" src="img/letter-g.png" width="30" height="25"
-                    alt=""> Glaucio</a>
+            <a class="navbar-brand logoFont" href=""> <img class="d-inline-block" src="img/letter-g (1).png" width="30" height="25"
+                    alt="">THE GROOVE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -52,38 +57,34 @@
     <!--Main Tag-->
     <main class="flex shrink-0">
         <div class="container mt-5">
-            <div class="row">
-                <div class="col-4">
-                    <h1>The Greens: A coding project</h1>
-                    <h4 class="lead">Live life one loop at a time. A javascript coding exercise that displays numbers
-                        from 0 to 100. </h4>
-                    <h2 class="mt-5 border-bottom border-2">Instructions</h2>
-                    <p>Please enter a starting value and a ending value. Press the bottom.</p>
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col">
+                    <h1>The Groove: A coding project</h1>
+                  
+                    <h4 class="lead pb-5">A javascript program that display string reverse utilizing arrays.</h4>
                 </div>
-                <div class="col-8 border-start border-2">
+                <div class="col border-2">
                     <div>
-                        <h5>Enter Values</h5>
+                        <h5 class="border-bottom border-danger">Enter a String to reverse</h5>
                         <form class="row gy-2 gx-3">
                             <div class="col">
-                                <input id="startValue" type="number" class="form-control" placeholder="Start value"
-                                    value="0" arial-label="start value">
+                                <input id="userInput" type="text" class="form-control" placeholder="Enter a string"
+                                  arial-label="start value">
                             </div>
-                            <div class="col">
-                                <input id="endValue" type="number" class="form-control" placeholder="End value"
-                                    value="100" arial-label="end value">
-                            </div>
-                            <div class="col-12 d-flex justify-content-end">
-                                <button id="btnSubmit" type="button" class=" btn btn-dark btn-lg">Display the Greens</button>
+                            <div class="col-12">
+                                <button id="btnSubmit" type="button" class=" btn btn-danger btn-lg">Reverse Me</button>
                             </div>
                           </div>
                         </form>
-                        <h2 class="mt-5 border-bottom border-2">Results</h2>
-                        <div class="table-responsive"><!--Always better to place table tag inside a div for responsiveness-->
-                            <table class="table table-stripped table-sm">
-                                <tbody id="results">
-                                    <!--Results go here-->
-                                </tbody>
-                            </table>
+                     
+                        <div class="alert alert-danger invisible mt-5 fade show" id="alert" role="alert">
+                            <h4 class="mb-0" id="alert-heading">Well done!</h4>
+                            <hr>
+                            <p class="mb-0" id="msg">
+                                <!--Inert a Message Here-->
+                            </p>
+                        
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -98,7 +99,7 @@
                     <span class="text-muted">&copy;2023</span> Glaucio Alexandre | khedinhoglaucio@gmail.com
                 </div>
                 <div class="col d-flex alin-item-center justify-content-lg-center">
-                    <img src="img/letter-g.png" alt="The G logo" height="24">
+                    <img src="img/letter-g (1).png" alt="The G logo" height="24">
                 </div>
                 <div class="col d-flex alin-item-center justify-content-start justify-content-lg-end">
                     <row class="row">
@@ -120,9 +121,6 @@
         </script>
          <script src="/js/site.js"></script>
     <script src="/js/prism.js"></script>
-    <script>
-        document.getElementById("btnSubmit").addEventListener("click", getValue);
-    </script>
     <Script>
         Prism.plugins.NormalizeWhitespace.setDefaults({
             'remove-trailing': true,
@@ -131,6 +129,9 @@
             'right-trim': true
         })
     </Script>
+    <script>
+        document.getElementById("btnSubmit").addEventListener("click", getSstring);
+    </script>
 </body>
 
 </html>
