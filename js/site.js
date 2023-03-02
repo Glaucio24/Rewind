@@ -3,7 +3,7 @@
 function getSstring() {
 
     document.getElementById("alert").classList.add("invisible");
-
+ 
     let userString = document.getElementById("userInput").value;
 
     let reverse = reverseString(userString);//declared a function into a variable 
@@ -13,9 +13,9 @@ function getSstring() {
 //Reverse the string 
 //logic function
 function reverseString(userString) {
-    let reverse = [];
+    let reverse = [];   
 
-    for (let index = userString.lenght - 1; index >= 0; index--) {
+    for (let index = userString.length - 1; index >= 0; index--) {
         reverse += userString[index];
     }
     return reverse;
@@ -23,7 +23,8 @@ function reverseString(userString) {
 
 //Display the reversed string to the user//view function
 function displayString(reverse) {
-    
+    console.log(reverse);
+
     document.getElementById("msg").innerHTML = `Your string reversed is: ${reverse}`; //Template literals 
     document.getElementById("alert").classList.remove("invisible");
 }
