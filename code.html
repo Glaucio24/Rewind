@@ -60,79 +60,76 @@
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers">
-                        <code class="language-javascript">                   
-//Get the value from the interface
-//Starts or Controller function
-function getValue() {
-    //get values from the page
-    let startValue = document.getElementById("startValue").value;
-    let endValue = document.getElementById("endValue").value;
+                        <code class="language-javascript">   
+    //Get the string 
+//controller function
+function getSstring() {
 
-    //Parse into integers 
-    startValue = parseInt(startValue);
-    endValue = parseInt(endValue);
-    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
-        //call generateNumbers function
-        let numbers = generateNumbers(startValue, endValue);
-        //we call display numbers to PUT  DISPLAY values on screen,
-        // NOT every function should return anything. 
-        displayNumbers(numbers)
-    }
-    else {
-        alert("You must enter integers");
-    }
+    // document.getElementById("alert").classList.add("invisible");
+ 
+    let userString = document.getElementById("userInput").value;
+
+    let inputTag=document.getElementById("userInput");
+
+    let reverse = reverseString(userString);//declared a function into a variable 
+
+    
+
+    displayString(reverse);
+    submit(inputTag);
 }
 
-//Generate numbers from startvalue to the endValue
-//Logic function(s)
-function generateNumbers(sValue, eValue) {
-    let numbers = [];
+//Reverse the string 
+//logic function
+function reverseString(userString) {
+    let reverse = ''; //string or array to store reversed string  
 
-    //Get all numbers from start to end
-    for (let index = sValue; index <= eValue; index++) {
-        //This will execute in a loop until index=eValue
-        numbers.push(index);
-
+    for (let index = userString.length - 1; index >= 0; index--) {
+        reverse += userString[index];
     }
-    return numbers;
-}
-
-//display the numbers and mark even numbers BOLD
-//display or view function
-function displayNumbers(numbers) {
-    let templateRows = "";
-
-    for (let index = 0; index < numbers.length; index++) {
-
-        let number = numbers[index];
-        let className = "even";
-
-        if (number % 2 == 0) {
-            className = "even";
-        }
-        else {
-            className = "odd";
-        }
-        templateRows += `<tr><td class="${className}">${number}</td></tr>`;
-    }
-    document.getElementById("results").innerHTML = templateRows;
+    return reverse;
 
 }
+//Submittion button
+function submit(inputTag){
+    console.log(inputTag);
+
+    inputTag.addEventListener("keyup", function(event){
+        if(event.keyCode === 13){
+            event.preventDefault();
+            displayString(reverseString(inputTag.value));
+        }       
+    });
+        
+
+}
+
+//Display the reversed string to the user//view function
+function displayString(reverse) {
+    console.log(reverse);
+
+    document.getElementById("msg").innerHTML = `Your string reversed is: ${reverse}`; //Template literals 
+    document.getElementById("alert").classList.remove("invisible");
+
+}
+
+
                     </code>
                 </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The code is instructed in three main functions:</p>
-                    <h5>getValue()</h5>
-                    <p>This function renders the start and end value from the interface.
-                        Furthermore, it parses them into integers, and it displays the values on screen.</p>
-                    <h5>generateNumbers()</h5>
-                    <p>This function helps us generate numbers from start value to the end value.
-                        The values are pushed and stored in a dynamic array</p>
-                    <h5>displayNumbers()</h5>
-                    <p>The purpose of this function is primarly to display numbers on screen, and ensure it marks bolds
-                        on even numbers </p>
+                    <p>The code is instructed in four main functions:</p>
+                    <h5>getSstring()</h5>
+                    <p></p>
+                    <h5>ReverseString()</h5>
+                    <p></p>
+                    <h5>submit()</h5>
+                    <p</p>
+                        <h5>displayString()</h5>
+                        <p></p>
                 </div>
+              
+            </div>
 
             </div>
 
